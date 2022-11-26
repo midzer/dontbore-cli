@@ -6,3 +6,11 @@
 ![GitHub Release Status](https://img.shields.io/github/workflow/status/midzer/dontbore-cli/Release?label=release)
 
 # dontbore-cli
+
+CLI tool for [DontBore](https://dontbo.re/)
+
+## Usage
+
+```
+dontbore-cli [domain]
+```
