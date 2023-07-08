@@ -18,19 +18,19 @@ func CLI(args []string) int {
 		fmt.Fprintf(os.Stderr, "Runtime error: %v\n", err)
 		return 1
 	}
-	
+
 	return 0
 }
 
 type appEnv struct {
-	hc         http.Client
-	domain     string
+	hc     http.Client
+	domain string
 }
 
 func (app *appEnv) fromArgs(args []string) error {
 	app.hc = *http.DefaultClient
 	app.domain = ""
-	if len(args) > 0  {
+	if len(args) > 0 {
 		app.domain = args[0]
 	}
 
@@ -45,14 +45,14 @@ Usage:
 `)
 	}
 	flag.Parse()
-	
+
 	return nil
 }
 
 func (app *appEnv) run() error {
 	u := BuildURL(app.domain)
 
-	var logins[] Login 
+	var logins []Login
 	if err := app.fetchJSON(u, &logins); err != nil {
 		return err
 	}
@@ -70,7 +70,7 @@ func (app *appEnv) fetchJSON(url string, data interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(data)
 }
 
-func prettyPrint(logins[] Login) error {
+func prettyPrint(logins []Login) error {
 	var err error
 	for i, login := range logins {
 		_, err = fmt.Printf(
@@ -81,7 +81,7 @@ func prettyPrint(logins[] Login) error {
 			login.Pass,
 			login.Vote,
 		)
-    }
-	
+	}
+
 	return err
 }

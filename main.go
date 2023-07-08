@@ -1,10 +1,11 @@
 package main
 
 import (
-    "os"
+	"os"
 
-    "github.com/midzer/dontbore-cli/app"
+	"github.com/midzer/dontbore-cli/app"
 )
+
 func main() {
-    os.Exit(app.CLI(os.Args[1:]))
+	os.Exit(app.CLI(os.Args[1:]))
 }
